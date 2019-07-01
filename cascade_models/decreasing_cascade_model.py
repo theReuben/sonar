@@ -2,7 +2,7 @@ from __future__ import division
 import networkx as nx
 import numpy as np
 
-def decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, active_nodes) :
+def decreasing_cascade_model_2(G, nodes, contagious_nodes, attempted_nodes, active_nodes) :
 
     class Node :
         number = None
@@ -35,7 +35,7 @@ def decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, activ
         for n in G.nodes() :
         	nodes[n] = Node(n)
 
-        return decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, active_nodes)
+        return decreasing_cascade_model_2(G, nodes, contagious_nodes, attempted_nodes, active_nodes)
 
 
     if len(attempted_nodes) == len(nodes) :        # If all nodes have been attempted, break
@@ -60,8 +60,8 @@ def decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, activ
                     next_active.add(adj)           # Node has been activated
                     next_contagious.add(adj)        # Node will be contagious at time t+1
 
-        return decreasing_cascade_model2(G, nodes, next_contagious, attempted_nodes.union(this_attempt), active_nodes.union(next_active))
+        return decreasing_cascade_model_2(G, nodes, next_contagious, attempted_nodes.union(this_attempt), active_nodes.union(next_active))
 
 def decreasing_cascade_model(G, seed_set) :
     nodes = {}
-    return decreasing_cascade_model2(G, nodes, seed_set, seed_set, seed_set)
+    return decreasing_cascade_model_2(G, nodes, seed_set, seed_set, seed_set)
