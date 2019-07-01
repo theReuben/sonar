@@ -1,4 +1,5 @@
 import networkx as nx
+import numpy as np
 
 def independent_cascade_model_2(G, contagious_nodes, attempted_nodes, active_nodes) :
     next_contagious = set()                         # Set of nodes going to be passed as contagious at time t+1
@@ -27,7 +28,7 @@ def independent_cascade_model_2(G, contagious_nodes, attempted_nodes, active_nod
                     next_active.add(adj)            # Node has been activated
                     next_contagious.add(adj)        # Node will be contagious at time t+1
 
-        return independent_cascade_model_2(next_contagious, attempted_nodes.union(this_attempt), active_nodes.union(next_active))
+        return independent_cascade_model_2(G, next_contagious, attempted_nodes.union(this_attempt), active_nodes.union(next_active))
 
 def independent_cascade_model(G, seed_set) :
-    return independent_cascade_model_2(seed_set, seed_set, seed_set)  # Pass seed set to cascade model
+    return independent_cascade_model_2(G, seed_set, seed_set, seed_set)  # Pass seed set to cascade model
