@@ -8,3 +8,12 @@ sonar/
 		decreasing_cascade_model.py
 
 	seed.py
+
+bring over cascade models
+write code to compute digraph of expectation
+	for each node, u :
+		run cascade N times
+		record number of times each node is activated (tau)
+		if tau/N > threshold theta for a node v:
+			there exists an edge (u,v) from u to v
+compute dominating set
