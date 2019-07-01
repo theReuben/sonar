@@ -1,5 +1,6 @@
 from __future__ import division
-import networkx as nx 
+import networkx as nx
+import numpy as np
 
 def decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, active_nodes) :
 
@@ -8,14 +9,14 @@ def decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, activ
         S = set()
         adj = set()
 
-        def __init__(number) :
-            number = number
+        def __init__(self, number) :
+            self.number = number
             S = set()
 
-        def attempted(node) :
+        def attempted(self, node) :
             S.add(node)
 
-        def S_size():
+        def S_size(self):
             return len(S)
 
     def decreasing_cascade_model_activation(con, adj) :
@@ -32,7 +33,7 @@ def decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, activ
 
     if len(nodes) == 0 :
         for n in G.nodes() :
-            nodes[n] = Node(n)
+        	nodes[n] = Node(n)
 
         return decreasing_cascade_model2(G, nodes, contagious_nodes, attempted_nodes, active_nodes)
 
