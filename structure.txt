@@ -17,3 +17,9 @@ write code to compute digraph of expectation
 		if tau/N > threshold theta for a node v:
 			there exists an edge (u,v) from u to v
 compute dominating set
+draw graph
+	radius/area of node proportional to tau for graph of exectation
+
+compute graph of expectation
+convert to digraph of expectation
+compute dominating set
