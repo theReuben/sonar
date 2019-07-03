@@ -12,10 +12,10 @@ def digraph_of_expectation(G, theta=0.05, iterations=1000, seed=None):
 		remove = []
 		print("\nNode {0}".format(v))		
 		for i in exp:
-			if exp[i]/iterations < theta:
+			exp[i] /= iterations
+			if exp[i] < theta:
 				remove.append(i)
 		for rem in remove:
 			del exp[rem]
 		tau[v] = exp
-		print tau[v]
 	return tau
