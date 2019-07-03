@@ -7,7 +7,9 @@ sonar/
 		linear_threshold_model.py
 		decreasing_cascade_model.py
 
-	seed.py
+	expectation_graph.py
+	expectation_digraph.py
+	dominating_set.py
 
 bring over cascade models
 write code to compute digraph of expectation
