@@ -23,4 +23,10 @@ def digraph_of_expectation(G, theta=0.05, iterations=1000, seed=None):
 			edge_list.append((v,u))
 	DG = nx.DiGraph()
 	DG.add_edges_from(edge_list)
-	return DG
+	return DG, tau
+
+def cumulative_tau(DG, tau):
+	tau_cumulative = {}
+	for v in DG.nodes:
+		for u in tau:
+			# to be completed for gradient/size varying nodes in visualisation
