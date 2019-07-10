@@ -5,6 +5,18 @@ from working_cascade_models import random_seed
 from tqdm import tqdm as tqdm
 
 def graph_of_expectation(G, iterations=1000, seed=None):
+	"""
+	The graph of expectation is an undirected graph,
+	which is a subgraph of the passed graph G,
+	where the nodes in the graph are present if the proportion
+	of times they are in the final propogation exceed the threshold
+	value theta.
+	The graph_of_expectation method returns the Tau of the 
+	graph of expectation, which is a dictionary of the number of times
+	each node is present in the propagation, given the initial seed.
+	Default seed is currently set to random nodes with number ten percent
+	of the graph size.
+	"""
 	if (seed == None):
 		seed = random_seed(G, int(0.1*len(G)))
 	tau = {}

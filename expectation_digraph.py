@@ -30,3 +30,4 @@ def cumulative_tau(DG, tau):
 	for v in DG.nodes:
 		for u in tau:
 			# to be completed for gradient/size varying nodes in visualisation
+			pass
