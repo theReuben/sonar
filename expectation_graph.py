@@ -20,8 +20,10 @@ def graph_of_expectation(G, iterations=1000, seed=None):
 	if (seed == None):
 		seed = random_seed(G, int(0.1*len(G)))
 	tau = {}
+	# Initialise each tau to 0
 	for v in G.nodes():
 		tau[v] = 0
+	# Record the tau for each node over all iterations
 	for i in range(iterations):
 		covered = independent_cascade_model(G, seed)
 		for u in covered:
