@@ -14,11 +14,9 @@ def graph_of_expectation(G, iterations=1000, seed=None):
 	The graph_of_expectation method returns the Tau of the 
 	graph of expectation, which is a dictionary of the number of times
 	each node is present in the propagation, given the initial seed.
-	Default seed is currently set to random nodes with number ten percent
-	of the graph size.
 	"""
 	if (seed == None):
-		seed = random_seed(G, int(0.1*len(G)))
+		seed = G.nodes()
 	tau = {}
 	# Initialise each tau to 0
 	for v in G.nodes():
