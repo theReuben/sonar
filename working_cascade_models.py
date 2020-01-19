@@ -23,9 +23,10 @@ def independent_cascade_model_test():
         G = nx.barabasi_albert_graph(100, 3, None)
         assign_edge_weights(G)
         seed = random_seed(G,10)
-        independent_cascade_model(G, seed)        
+        independent_cascade_model(G, seed, verbose=True)
+        print("Indpendent Cascade Model works.\n")        
     except Exception as e:
-        print("Indpendent Cascade Model Failed.")
+        print("Indpendent Cascade Model Failed.\n")
     return True
 
 def decreasing_cascade_model_test():
@@ -33,9 +34,10 @@ def decreasing_cascade_model_test():
         G = nx.barabasi_albert_graph(100, 3, None)
         assign_edge_weights(G)
         seed = random_seed(G,10)
-        decreasing_cascade_model(G, seed)        
+        decreasing_cascade_model(G, seed)
+        print("Decreasing Cascade Model works.\n")        
     except Exception as e:
-        print("Decreasing Cascade Model Failed.")
+        print("Decreasing Cascade Model Failed.\n")
     return True
 
 def linear_threshold_model_test():
@@ -43,16 +45,14 @@ def linear_threshold_model_test():
         G = nx.barabasi_albert_graph(100, 3, None)
         assign_edge_weights(G)
         seed = random_seed(G,10)
-        linear_threshold_model(G, seed)        
+        linear_threshold_model(G, seed)
+        print("Linear Threshold Model works.")       
     except Exception as e:
         print("Linear Threshold Model Failed.")
     return True
 
 
 if __name__ == '__main__':
-    if (independent_cascade_model_test()): 
-        print("Indpendent Cascade Model works.\n")
-    if (decreasing_cascade_model_test()): 
-        print("Decreasing Cascade Model works.\n")
-    if (linear_threshold_model_test()): 
-        print("Linear Threshold Model works.")
+    independent_cascade_model_test()
+    decreasing_cascade_model_test()
+    linear_threshold_model_test()
