@@ -3,7 +3,7 @@ from expectation_graph import graph_of_expectation
 from tqdm import tqdm as tqdm
 import networkx as nx 
 
-def digraph_of_expectation(G, theta=0.05, iterations=1000, seed=None):
+def digraph_of_expectation(G, theta=0.005, iterations=1000, seed=None):
 	if (seed == None):
 		seed = G.nodes()
 	tau = {}
@@ -11,10 +11,10 @@ def digraph_of_expectation(G, theta=0.05, iterations=1000, seed=None):
 	for v in tqdm(seed):
 		seed_v = {v}
 		exp = graph_of_expectation(G=G, iterations=iterations, seed=seed_v)
-		remove = []
+		remove = [v]
 		for i in exp:
 			exp[i] /= iterations
-			if exp[i] < theta or exp[i] == 1.0:
+			if exp[i] < theta :
 				remove.append(i)
 		for rem in remove:
 			del exp[rem]
